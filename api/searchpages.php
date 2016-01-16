@@ -232,6 +232,8 @@ body{
 				$rescnt2=$sqlHelper -> execute_dql($sqlcnt2);
 				$cntrow2 = $rescnt2->fetch_array();
 				$numrow2=$cntrow2[0];
+				//总页数
+				$totalpage = ceil($numrow2/$pageSize);
 				//分页取出
 				$sql2 = "select * from yidongdan where name like '%$name%' limit $offset,$pageSize";
 				$res2 = $sqlHelper -> execute_dql($sql2);
@@ -279,7 +281,22 @@ body{
 				
 			} else if($c==3){
 				//查找模拟单（可以直接下载）
-				$sql3 = "select * from monidan where name like '%$name%'";
+				if(isset($_GET['page'])){
+					$page=intval($_GET['page']);
+				} else {
+					$page=1;
+				} //获取分页
+				$offset=$pageSize*($page-1);  //
+				$prepage=$page-1; //上一页
+				$nextpage=$page+1; //下一页
+				$sqlcnt3="select count(*) from monidan where name like '%$name%'";
+				$rescnt3=$sqlHelper -> execute_dql($sqlcnt3);
+				$cntrow3 = $rescnt3->fetch_array();
+				$numrow3=$cntrow3[0];
+				//总页数
+				$totalpage = ceil($numrow3/$pageSize);
+				//分页取出
+				$sql3 = "select * from monidan where name like '%$name%' limit $offset,$pageSize";
 				$res3 = $sqlHelper -> execute_dql($sql3);
 				$row3_cnt = $res3 -> num_rows;
 				if($row3_cnt==0)
@@ -306,8 +323,25 @@ body{
 						 $k++;		
 					}
 					echo "</table>";
+					$rescnt3 -> free();
 					$res3 -> free();
 					$rese3 -> free();
+					//分页栏
+					echo "<div align='center' style='margin-top:10px;'>";
+					if($page!=1){
+						echo "<a href='searchpages.php?page=".$prepage."&name=$name&catalog=3'>[上一页]</a>";
+					}
+					for($i=1;$i<$page;$i++){
+						echo "<a href='searchpages.php?page=".$i."&name=$name&catalog=3'>[".$i."]</a>";
+					}
+					echo "[".$page."]";
+					for($i=$page+1;$i<=$totalpage;$i++){
+						echo "<a href='searchpages.php?page=".$i."&name=$name&catalog=3'>[".$i."]</a>";
+					}
+					if(!($page==$totalpage)){
+						echo "<a href='searchpages.php?page=".$nextpage."&name=$name&catalog=3'>[下一页]</a>";
+					}
+					echo "</div>";
 				}
 			}
 		/*	else if($c==4){
