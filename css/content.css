@@ -1,0 +1,158 @@
+body
+{
+    font-family: arial;
+    font-size: 15px; /*text-align: center;*/
+    margin: 10px; /*20*/
+}
+a
+{
+	text-decoration: none;
+	color:#0000EE; 
+}
+.nTab
+{
+	float: left;
+	width: 100%; /*542*/
+	margin: 0 auto;
+	border-bottom: 1px #C7C7CD solid;
+	background: #d5d5d5;
+	background-position: left;
+	background-repeat: repeat-y;
+	margin-bottom: 2px;
+}
+.nTab .TabTitle
+{
+	clear: both;
+	height: 26px;
+	overflow: hidden;
+}
+.nTab .TabTitle ul
+{
+	margin: 0;
+	padding: 0;
+}
+.nTab .TabTitle li
+{
+	float: left;
+	width: 80px;
+	cursor: pointer;
+	padding-top: 6px;
+	padding-right: 0px;
+	padding-left: 15px;
+	padding-bottom: 7px;
+	list-style-type: none;
+}
+.nTab .TabTitle .active
+{
+	background: url(../images/tab_bg1.gif) left -25px no-repeat;
+	border-left: 1px #C7C7CD solid;
+	border-top: 1px #C7C7CD solid;
+	border-bottom: 1px #fff solid;
+}
+.nTab .TabTitle .normal
+{
+	background: url(../images/tab_bg1.gif);
+	border-top: 1px #C7C7CD solid;
+	border-bottom: 1px #C7C7CD solid;
+}
+.nTab .TabContent
+{
+	width: auto;
+	height: 700px;   /*480*/
+	background: #fff;
+	margin: 0px auto;
+	padding: 10px 0 0 0;
+	border-right: 1px #C7C7CD solid;
+	border-left: 1px #C7C7CD solid;
+}
+.nTab .TabContent a
+{
+	margin: 10px;
+}
+.none
+{
+	display: none;
+}
+
+/*表格*/
+.tableBasic
+{
+	background-color: #F9F9F9;
+	color: #666666;
+	border-left: 1px dotted #CCCCCC;
+	border-top: 1px dotted #CCCCCC;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+.tableBasic select
+{
+	color: #8F8F8F;
+}
+.tableBasic td, .tableBasic th
+{
+	border-right: 1px dotted #CCCCCC;
+	border-bottom: 1px dotted #CCCCCC;
+	height:20px;
+}
+.tableBasic th
+{
+	background-color: #EEEEEE;
+	/*height: 16px;*/
+}
+.tableBasic .child
+{
+	background-color: #FFFFFF;
+}
+
+/*翻页*/
+.pager
+{
+	text-align: right;
+	padding-top: 20px;
+	color: #666;
+}
+.pager a
+{
+	color: #666;
+	text-decoration: underline;
+}
+
+/*添加按钮*/
+.actionBtn
+{
+	float: right;
+	display: inline-block;
+	background-color: #28B779;
+	padding: 0 20px;
+	height: 27px;
+	line-height: 27px;
+	color: #FFFFFF;
+	font-size: 13px;
+	font-weight: bold;
+}
+.add
+{
+	background: #28B779 url(../images/action_btn.gif) no-repeat 20px 50%;
+	padding-left: 40px;
+}
+
+#pagecount,#jszlpagecount,#sgpagecount,#bjpagecount,#ydpagecount,#mnpagecount,#dxpagecount
+{width:500px; margin:10px auto 2px auto; padding-bottom:20px; text-align:center; position:absolute; bottom:180px; right:36%;}
+#pagecount span,#jszlpagecount span,#sgpagecount span,#bjpagecount span,#ydpagecount span,#mnpagecount span,#dxpagecount span
+{margin:4px; font-size:14px;}
+{margin:4px; font-size:14px;}
+
+.add_sg,.add_mn,.add_bj,.add_dx,.add_yd,.add_js
+{
+	float: right;
+	display: inline-block;
+	background-color: #28B779;
+	padding: 0 20px;
+	height: 27px;
+	line-height: 27px;
+	color: #FFFFFF;
+	font-size: 13px;
+	font-weight: bold;
+	background: #28B779 url(../images/action_btn.gif) no-repeat 20px 50%;
+	padding-left: 40px;	
+}

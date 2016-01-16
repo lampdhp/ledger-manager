@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>台账管理系统</title>
+    <link rel="stylesheet" href="css/system.css" type="text/css" media="screen" />
+
+    <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="zTree_v3-master/js/jquery.ztree.core-3.5.js"></script>
+    <link rel="stylesheet" href="zTree_v3-master/css/zTreeStyle/zTreeStyle.css" type="text/css">
+
+    <SCRIPT type="text/javascript">
+		
+		
+		
+        var setting = {};
+
+        var zNodes = [
+			{ name: "1号机", isParent: true ,
+                children: [ 
+                            {name: "锅炉系统", url: "equipment.php?sys=1&id=2", target: "contentFrame"},
+                            {name: "汽机系统"},
+                            {name: "电气系统"},
+                            {name: "热工系统"},
+                            {name: "辅控系统"},
+                            {name: "DCS系统"}
+                ]
+             },
+			{ name: "2号机", isParent: true,
+			    children: [
+                            { name: "锅炉系统" },
+                            { name: "汽机系统" },
+                            { name: "电气系统" },
+                            { name: "热工系统" },
+                            { name: "辅控系统" },
+                            { name: "DCS系统" }
+                ]
+			},
+			{ name: "3号机", isParent: true,
+			    children: [
+                            { name: "锅炉系统" },
+                            { name: "汽机系统" },
+                            { name: "电气系统" },
+                            { name: "热工系统" },
+                            { name: "辅控系统" },
+                            { name: "DCS系统" }
+                ]
+             },
+            { name: "4号机", isParent: true,
+                children: [
+                            { name: "锅炉系统" },
+                            { name: "汽机系统" },
+                            { name: "电气系统" },
+                            { name: "热工系统" },
+                            { name: "辅控系统" },
+                            { name: "DCS系统" }
+                ]
+             },
+            { name: "5号机", isParent: true,
+                children: [
+                            { name: "锅炉系统", isParent:true,
+								children:[
+									{name:"5号机低温省煤器" },
+									{name:"脱硝系统" },
+									{name:"机组汽水系统" },
+									{name:"锅炉启动系统" },
+									{name:"锅炉汽水系统" },
+									{name:"锅炉疏水放气系统" },
+									{name:"风烟系统" },
+									{name:"二次风一次风系统" },
+									{name:"炉膛烟气系统" },
+									{name:"送风机本体及油系统" },
+									{name:"一次风机本体及油系统" },
+									{name:"引风机本体及油系统" }
+								]
+							},
+                            { name: "汽机系统" },
+                            { name: "电气系统" },
+                            { name: "热工系统" },
+                            { name: "辅控系统" },
+                            { name: "DCS系统" , isParent:true,
+								children: [
+									{name:"DCS",	url: "equipment.php?sys=5", target: "contentFrame"}
+								]
+							}
+                ]  
+             },
+            { name: "6号机", isParent: true,
+                children: [
+                            { name: "锅炉系统" },
+                            { name: "汽机系统" },
+                            { name: "电气系统" },
+                            { name: "热工系统" },
+                            { name: "辅控系统" },
+                            { name: "DCS系统" }
+                ]
+             }
+
+		];
+
+		
+		
+		
+        $(document).ready(function () {
+            $.fn.zTree.init($("#browser"), setting, zNodes);
+        });
+		
+	</SCRIPT>
+</head>
+<body>
+    <div id="header">
+        <div id="logo">
+            <h2>
+                华能福州电厂台账管理系统</h2>
+        </div>
+    </div>
+    <div id="main">
+        <div id="menu">
+            <div id="zy0" style="display: block;">
+                <ul id="browser" class="ztree">
+
+                </ul>
+            </div>
+        </div>
+        <div id="content">
+			
+            <iframe id="mainFrame" name="contentFrame" width="100%" scrolling="auto" height="600px" frameborder="false"
+                allowtransparency="true" style="border: medium none; overflow-x: hidden;" src="welcome.php" 
+                ></iframe>
+        </div>
+    </div>
+</body>

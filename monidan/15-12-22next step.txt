@@ -1,0 +1,56 @@
+1.把content页用php重构
+
+2.结合jquery，实现表格编辑，实现添加、删除功能  （完成）
+
+3.建表  1-用户表   
+        2-事故表
+	3。。。。其他表
+
+4.分页 （完成）
+
+
+5.设备表的添加删除修改
+
+6.文件上传，显示,下载
+
+
+
+
+2015-12-16
+1.phpmyadmin 表中不能插入中文
+  解决：将该列的排序规则改成utf8_general_ci
+
+2.update语句    UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值
+
+3.deleted语句   DELETE FROM 表名称 WHERE 列名称 = 值
+
+4.排序          ORDER BY 
+
+5.Notepad++ 格式化方法一  tab向右缩进，shift+tab向左缩进
+	    方法二   用插件
+
+
+6.jquery的ajax用法
+
+
+7.php的GET和POST用法
+
+8.a标签 confirm
+
+9.javascript有执行的顺序
+
+10.jQuery append等用法
+
+11.mysqli面向对象和面向过程，面向对象可能没有()
+
+12.熟悉sql语句
+
+13.layer用法 opne/close/iframe
+
+14.表单提交php用<form action="" method></form>,提交本页的话action里不用写，
+
+15.文件上传移动，$_FILE  移动 move_uploaded_file
+
+16.上传文件中文名乱码，iconv函数
+
+17.上传文件最大文件大小是用字节算的，1Mb为1000000

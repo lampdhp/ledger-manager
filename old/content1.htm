@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        body
+        {
+            font-family: arial;
+            font-size: 15px; /*text-align: center;*/
+            margin: 20px;
+        }
+        a
+        {
+            text-decoration: none;
+        }
+        .nTab
+        {
+            float: left;
+            width: 100%; /*542*/
+            margin: 0 auto;
+            border-bottom: 1px #C7C7CD solid;
+            background: #d5d5d5;
+            background-position: left;
+            background-repeat: repeat-y;
+            margin-bottom: 2px;
+        }
+        .nTab .TabTitle
+        {
+            clear: both;
+            height: 26px;
+            overflow: hidden;
+        }
+        .nTab .TabTitle ul
+        {
+            margin: 0;
+            padding: 0;
+        }
+        .nTab .TabTitle li
+        {
+            float: left;
+            width: 80px;
+            cursor: pointer;
+            padding-top: 6px;
+            padding-right: 0px;
+            padding-left: 15px;
+            padding-bottom: 7px;
+            list-style-type: none;
+        }
+        .nTab .TabTitle .active
+        {
+            background: url(images/tab_bg1.gif) left -25px no-repeat;
+            border-left: 1px #C7C7CD solid;
+            border-top: 1px #C7C7CD solid;
+            border-bottom: 1px #fff solid;
+        }
+        .nTab .TabTitle .normal
+        {
+            background: url(images/tab_bg1.gif);
+            border-top: 1px #C7C7CD solid;
+            border-bottom: 1px #C7C7CD solid;
+        }
+        .nTab .TabContent
+        {
+            width: auto;
+            height: 480px;
+            background: #fff;
+            margin: 0px auto;
+            padding: 10px 0 0 0;
+            border-right: 1px #C7C7CD solid;
+            border-left: 1px #C7C7CD solid;
+        }
+        .nTab .TabContent a
+        {
+            margin: 10px;
+        }
+        .none
+        {
+            display: none;
+        }
+        
+        /*表格*/
+        .tableBasic
+        {
+            background-color: #F9F9F9;
+            color: #666666;
+            border-left: 1px dotted #CCCCCC;
+            border-top: 1px dotted #CCCCCC;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+        .tableBasic select
+        {
+            color: #8F8F8F;
+        }
+        .tableBasic td, .tableBasic th
+        {
+            border-right: 1px dotted #CCCCCC;
+            border-bottom: 1px dotted #CCCCCC;
+        }
+        .tableBasic th
+        {
+            background-color: #EEEEEE;
+            height: 16px;
+        }
+        .tableBasic .child
+        {
+            background-color: #FFFFFF;
+        }
+        
+        /*翻页*/
+        .pager
+        {
+            text-align: right;
+            padding-top: 20px;
+            color: #666;
+        }
+        .pager a
+        {
+            color: #666;
+            text-decoration: underline;
+        }
+        
+        /*添加按钮*/
+        .actionBtn
+        {
+            float: right;
+            display: inline-block;
+            background-color: #28B779;
+            padding: 0 20px;
+            height: 27px;
+            line-height: 27px;
+            color: #FFFFFF;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        .add
+        {
+            background: #28B779 url(images/action_btn.gif) no-repeat 20px 50%;
+            padding-left: 40px;
+        }
+    </style>
+    <script type="text/javascript">
+		//Tab切换
+        function nTabs(thisObj, Num) {
+            if (thisObj.className == "active") return;
+            var tabObj = thisObj.parentNode.id;
+            var tabList = document.getElementById(tabObj).getElementsByTagName("li");
+            for (i = 0; i < tabList.length; i++) {
+                if (i == Num) {
+                    thisObj.className = "active";
+                    document.getElementById(tabObj + "_Content" + i).style.display = "block";
+                } else {
+                    tabList[i].className = "normal";
+                    document.getElementById(tabObj + "_Content" + i).style.display = "none";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h4>
+            <产品名称>
+        </h4>
+    </div>
+    <div class="nTab">
+        <!-- 标题开始 -->
+        <div class="TabTitle">
+            <ul id="myTab0">
+                <li class="active" onclick="nTabs(this,0);">技术资料</li>
+                <li class="normal" onclick="nTabs(this,1);">备品备件</li>
+                <li class="normal" onclick="nTabs(this,2);">重要事故</li>
+                <li class="normal" onclick="nTabs(this,3);">部件更换</li>
+                <li class="normal" onclick="nTabs(this,4);">大修记录</li>
+                <li class="normal" onclick="nTabs(this,5);">异动执行</li>
+                <li class="normal" onclick="nTabs(this,6);">模拟单</li>
+            </ul>
+        </div>
+        <!-- 内容开始 -->
+        <div class="TabContent">
+            <div id="myTab0_Content0">
+                <a href="#" target="_blank">技术资料</a>
+				<form action="#" method="post">
+				</form>
+				</div>
+            <div id="myTab0_Content1" class="none">
+                <a href="product_category.php?rec=add" class="actionBtn add">添加</a>
+                <table width="98.5%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+                    <tr>
+                        <th width="80" align="left">
+                            序号
+                        </th>
+                        <th align="left">
+                            名称
+                        </th>
+                        <th width="200" align="left">
+                            型号
+                        </th>
+                        <th width="60" align="center">
+                            数量
+                        </th>
+                        <th width="120" align="center">
+                            操作
+                        </th>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <a href="article.php?cat_id=1">1</a>
+                        </td>
+                        <td>
+                            处理器
+                        </td>
+                        <td>
+                            CP001
+                        </td>
+                        <td align="center">
+                            10
+                        </td>
+                        <td align="center">
+                            <a href="article_category.php?rec=edit&cat_id=1">编辑</a> | <a href="article_category.php?rec=del&cat_id=1">
+                                删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <a href="article.php?cat_id=2">2</a>
+                        </td>
+                        <td>
+                            卡件
+                        </td>
+                        <td>
+                            FBM332
+                        </td>
+                        <td align="center">
+                            20
+                        </td>
+                        <td align="center">
+                            <a href="article_category.php?rec=edit&cat_id=2">编辑</a> | <a href="article_category.php?rec=del&cat_id=2">
+                                删除</a>
+                        </td>
+                    </tr>
+                </table>
+                <div class="clear">
+                </div>
+                <div class="pager">
+                    总计 2 个记录，共 1 页，当前第 1 页 | <a href="product.php?page=1">第一页</a> 上一页 下一页 <a href="product.php?page=1">
+                        最末页</a></div>
+            </div>
+            <div id="myTab0_Content2" class="none">
+                <a href="#">重要事故</a></div>
+            <div id="myTab0_Content3" class="none">
+                <a href="#">部件更换</a></div>
+            <div id="myTab0_Content4" class="none">
+                <a href="#">大修记录</a></div>
+            <div id="myTab0_Content5" class="none">
+                <a href="#">异动执行</a></div>
+            <div id="myTab0_Content6" class="none">
+                <a href="#">模拟单</a></div>
+        </div>
+    </div>
+</body>
+</html>
