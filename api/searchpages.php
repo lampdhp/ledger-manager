@@ -344,7 +344,7 @@ body{
 					echo "</div>";
 				}
 			}
-		/*	else if($c==4){
+			else if($c==4){
 				//查找设备
 				$sql4 = "select * from equipments where e_name like '%$name%'";
 				$res4 = $sqlHelper -> execute_dql($sql4);
@@ -360,22 +360,22 @@ body{
 						 ";
 					while ( $row4  =  $res4 -> fetch_array ()) {
 						 if($grade==0){
-							 echo  "<tr><td align='center'>$k</td><td align='center'><a href='content2.php?eid=".$row4['id']."'>";
+							 echo  "<tr><td align='center'>$k</td><td align='center'><a href='../content2.php?eid=".$row4['id']."'>";
 						 } else if($grade==1){
-							 echo  "<tr><td align='center'>$k</td><td align='center'><a href='content.php?eid=".$row4['id']."'>";
+							 echo  "<tr><td align='center'>$k</td><td align='center'><a href='../content.php?eid=".$row4['id']."'>";
 						 } else if($grade==2){
-							 echo  "<tr><td align='center'>$k</td><td align='center'><a href='contentread.php?eid=".$row4['id']."'>";
+							 echo  "<tr><td align='center'>$k</td><td align='center'><a href='../contentread.php?eid=".$row4['id']."'>";
 						 }
 						 echo $row4['e_name'];
-						 echo "</a></td>";
-						 </tr>";
+						 echo "</a></td></tr>";
+						 
 						 $k++;	
 					}
 					echo "</table>";
 					$res4 -> free();
 					
 				}
-			}*/
+			}
 			else {
 				echo "<div style='text-align:center; color:red;'>请选择需要查询的项目</div>";
 			}
