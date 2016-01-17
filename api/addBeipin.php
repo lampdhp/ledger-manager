@@ -51,6 +51,7 @@
 			<tr><td>&nbsp;&nbsp;型号：</td><td><input type="text" name="type" size="50" /><span style="color:red;">*</span></td></tr>
 			<tr><td>&nbsp;&nbsp;数量：</td><td><input type="text" name="num" /><span style="color:red;">*</span></td></tr>
 			<tr><td>在装数量：</td><td><input type="text" name="olnum" /><span style="color:red;">*</span></td></tr>
+			<tr><td>存放位置：</td><td><input type="text" name="local" size="50" /><span style="color:red;">*</span></td></tr>
 			<tr><td>&nbsp;&nbsp;备注：</td><td><input type="text" name="tip" size="50" /></td></tr>
 			</table>
 			<input type="submit" value="确定" class="addBtn">
@@ -62,6 +63,7 @@
 		$type = $_POST['type'];
 		$num = $_POST['num'];  //intval($_POST['num'])
 		$olnum = $_POST['olnum'];
+		$local = $_POST['local'];
 		$tip = $_POST['tip'];
 		$addtime = date("Y-m-d");
 		
@@ -74,7 +76,7 @@
 				
 		} else {
 			//echo $name.$type.$num;
-			$sql = "insert into beipin (name,type,num,addtime,eid) values ('$name','$type',$num,$olnum,'$tip','$addtime',$eid)";
+			$sql = "insert into beipin (name,type,num,olnum,local,tip,addtime,eid) values ('$name','$type',$num,$olnum,'$loacl','$tip','$addtime',$eid)";
 			
 			$b = $sqlHelper -> execute_dml($sql);
 			if($b==1){

@@ -68,11 +68,11 @@
 					var list = json.list;
 					var i=(curPage-1)*pageSize+1;
 					if(total==0){
-						tr += "<tr><td align='center' >1</td><td align='center'>无</td><td align='center'>无</td><td align='center' >无</td><td align='center' >无</td><td align='center' >无</td><td align='center'></td></tr>";
+						tr += "<tr><td align='center' >1</td><td align='center'>无</td><td align='center'>无</td><td align='center' >无</td><td align='center' >无</td><td align='center' >无</td><td align='center' >无</td><td align='center' >无</td><td align='center'></td></tr>";
 					}
 					else{
 						$.each(list,function(index,array){ //遍历json数据列
-							tr += "<tr><td align='center' >"+i+"</td><td align='center'>"+array['name']+"</td><td align='center'>"+array['type']+"</td><td align='center' class='edit' id='"+array['id']+"'>"+array['num']+"</td><td align='center' class='oledit' id='"+array['id']+"'>"+array['olnum']+"</td><td align='center' class='tipedit' id='"+array['id']+"'>"+array['tip']+"</td></tr>";
+							tr += "<tr><td align='center' >"+i+"</td><td align='center'>"+array['name']+"</td><td align='center'>"+array['type']+"</td><td align='center' class='edit' id='"+array['id']+"'>"+array['num']+"</td><td align='center' class='oledit' id='"+array['id']+"'>"+array['olnum']+"</td><td align='center' class='localedit' id='"+array['id']+"'>"+array['local']+"</td><td align='center' class='tipedit' id='"+array['id']+"'>"+array['tip']+"</td><td align='center' ><a href='javascript:showhis("+array['id']+")' class='cghis' style='color:#666'>查看</a></td></tr>";
 							i++;						
 					});
 					}
@@ -88,6 +88,15 @@
 					});
 					$('.oledit').editable('api/oledit.php',{
 						width:30,
+						height:18,
+						cancel:'取消',
+						submit:'确定',
+						//indicator:,
+						tooltip:'单击可以修改',
+						style:'display:inline'
+					});
+					$('.localedit').editable('api/editlocal.php',{
+						width:100,
 						height:18,
 						cancel:'取消',
 						submit:'确定',
@@ -112,6 +121,19 @@
 					alert("数据加载失败");
 					
 				}
+			});
+		}
+		function showhis(bid){
+			//查看修改历史	
+			layer.open({
+				type:2,
+				title:'修改记录',
+				//maxmin:true,
+				//skin:'layer-layer-rim',
+				area:['500px','600px'],
+				offset:['100px','700px'],
+				shadeClose:true,
+				content:'api/showhis.php?bid='+bid	
 			});
 		}
 		//获取事故数据分页
@@ -777,8 +799,9 @@
 						<th width="200" align="center">型号</th>
 						<th width="150" align="center">数量</th>
 						<th width="150" align="center">在装数量</th>
+						<th width="200" align="center">存放位置</th>
 						<th width="200" align="center">备注</th>
-						
+						<th width="80" align="center">修改记录</th>
 					</tr>';
 
 					echo "</table>";
